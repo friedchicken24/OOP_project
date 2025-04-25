@@ -16,8 +16,7 @@ Tính năng
 Cách chạy 
 
 Cài Flask:
-   ```bash
-   pip install flask
    
-
+`pip install flask`
+   
 ***Chương trình sử dụng môi trường python 3.11.x***
