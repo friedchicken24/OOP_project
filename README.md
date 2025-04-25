@@ -14,8 +14,10 @@ Tính năng
 - Lưu điểm cao vào file JSON
 
 Cách chạy 
+
 Cài Flask:
    ```bash
    pip install flask
+   
 
 ***Chương trình sử dụng môi trường python 3.11.x***
