@@ -1,5 +1,6 @@
 # OOP_project
 nhóm 11
+
 **Memory Match** là một trò chơi lật bài tìm cặp giống nhau. Trò chơi này được xây dựng bằng:
 - Python (OOP)
 - Flask (Web backend)
@@ -16,3 +17,5 @@ Cách chạy
 Cài Flask:
    ```bash
    pip install flask
+
+***Chương trình sử dụng môi trường python 3.11.x***
