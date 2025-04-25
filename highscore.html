@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h1 class="text-center">High Scores</h1>
+    </div>
+    <div class="card-body">
+        <div class="mb-3 text-center">
+            <div class="btn-group" role="group" aria-label="Difficulty selection">
+                <a href="{{ url_for('highscores', difficulty='easy') }}" class="btn {% if difficulty == 'easy' %}btn-primary{% else %}btn-outline-primary{% endif %}">Easy</a>
+                <a href="{{ url_for('highscores', difficulty='normal') }}" class="btn {% if difficulty == 'normal' %}btn-primary{% else %}btn-outline-primary{% endif %}">Normal</a>
+                <a href="{{ url_for('highscores', difficulty='hard') }}" class="btn {% if difficulty == 'hard' %}btn-primary{% else %}btn-outline-primary{% endif %}">Hard</a>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Rank</th>
+                        <th scope="col">Player</th>
+                        <th scope="col">Score</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Attempts</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if high_scores %}
+                        {% for score in high_scores %}
+                            <tr {% if loop.index == 1 %}class="table-warning"{% endif %}>
+                                <td>{{ loop.index }}</td>
+                                <td>{{ score.player_name }}</td>
+                                <td>{{ score.score }}</td>
+                                <td>{{ '%02d:%02d'|format(score.time // 60, score.time % 60) }}</td>
+                                <td>{{ score.attempts }}</td>
+                                <td>{{ score.date }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="6" class="text-center">No high scores yet!</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="text-center mt-3">
+            <a href="{{ url_for('index') }}" class="btn btn-primary">Back to Game</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

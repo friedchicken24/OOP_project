@@ -1,0 +1,103 @@
+/* Memory Match Game Styles */
+
+/* Card styles */
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 125%; /* Aspect ratio for cards */
+    text-align: center;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-front {
+    background-color: var(--bs-primary);
+    color: white;
+    font-size: 2rem;
+}
+
+.card-back {
+    background-color: var(--bs-light);
+    color: var(--bs-dark);
+    transform: rotateY(180deg);
+}
+
+/* Flipped card style */
+.card-inner.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Matched card style */
+.card-inner.matched {
+    transform: rotateY(180deg);
+    opacity: 0.7;
+}
+
+.card-inner.matched .card-back {
+    background-color: var(--bs-success);
+    color: white;
+}
+
+/* Card value style */
+.card-value {
+    font-size: 2.5rem;
+}
+
+/* Animation for card matching */
+@keyframes match-animation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.card-inner.matched {
+    animation: match-animation 0.5s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card-value {
+        font-size: 1.8rem;
+    }
+}
+
+/* Game board responsive adjustments */
+#game-board {
+    margin-top: 2rem;
+}
+
+/* Modal styling */
+.modal-body .fa-trophy {
+    animation: trophy-glow 2s infinite alternate;
+}
+
+@keyframes trophy-glow {
+    from { text-shadow: 0 0 5px #ffc107; }
+    to { text-shadow: 0 0 20px #ffc107; }
+}
+
+/* Footer styling */
+.footer {
+    margin-top: 3rem;
+}
+
+/* Game stats cards */
+.card-title {
+    font-weight: bold;
+    color: var(--bs-info);
+}
